@@ -1,3 +1,5 @@
+using Assets.Scripts.Game;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,31 +17,45 @@ public class EnemySpawner : MonoBehaviour
 
     public static EnemySpawner instance;
 
+    private Timer timer;
+    private int numberEnemySpawn = 1;
+    private float enemySpawnRateIncrease = 1.005f;
+    private int countTimeSpawn = 1;
+    private float distanceBetweenObjects = 3;
     private void Awake()
     {
         instance = this;
     }
 
-    public void Spawning()
+    private void Start()
     {
-        StartCoroutine(SpawnDelay());
+        numberEnemySpawn = (int)Math.Ceiling(numberEnemySpawn * Mathf.Pow(enemySpawnRateIncrease, countTimeSpawn));
+        timer = gameObject.AddComponent<Timer>();
+        timer.Duration = spawnInterval;
+        timer.run();
+        int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+        int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+        Instantiate(enemyPrefabs[randomPrefabID], pointSpawn[randomSpawnPoint]);
+        Debug.Log(numberEnemySpawn);
     }
 
-    IEnumerator SpawnDelay()
+    private void Update()
     {
-        SpawnEnemy();
-
-        yield return new WaitForSeconds(spawnInterval);
-
-        StartCoroutine(SpawnDelay());
-    }
-
-    void SpawnEnemy()
-    {
-        int randomPrefabID = Random.Range(0, enemyPrefabs.Count);
-        int randomSpawnPoint = Random.Range(0, pointSpawn.Count);
-        GameObject enemySpawned = Instantiate(enemyPrefabs[randomPrefabID], pointSpawn[randomSpawnPoint]); 
-
+        if(timer.Finished)
+        {
+            for(int i = 0; i < numberEnemySpawn; i++)
+            {
+                int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+                int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+                Vector3 posSpawn = pointSpawn[randomSpawnPoint].position + i * distanceBetweenObjects * transform.right;
+                Instantiate(enemyPrefabs[randomPrefabID], posSpawn, Quaternion.identity);
+            }
+            countTimeSpawn++;
+            numberEnemySpawn = (int)Math.Ceiling(numberEnemySpawn * Mathf.Pow(enemySpawnRateIncrease, countTimeSpawn / 5));
+            timer.Duration = spawnInterval;
+            timer.run();
+            Debug.Log(numberEnemySpawn);
+        }
     }
 
 }

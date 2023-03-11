@@ -279,7 +279,7 @@ MonoBehaviour:
   - {fileID: 1344044186}
   - {fileID: 642126315}
   - {fileID: 1692715888}
-  spawnInterval: 2
+  spawnInterval: 7
 --- !u!114 &313594415
 MonoBehaviour:
   m_ObjectHideFlags: 0
