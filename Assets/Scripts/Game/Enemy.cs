@@ -8,10 +8,16 @@ public class Enemy : MonoBehaviour
     public int health;
 
     [SerializeField]
+    public int baseHealth;
+
+    [SerializeField]
     public int attackPower;
 
     [SerializeField]
     public float moveSpeed;
+
+    [SerializeField]
+    public HealthBar healthBar;
 
     private void Update()
     {
@@ -26,6 +32,7 @@ public class Enemy : MonoBehaviour
     public void loseHealth()
     {
         health--;
+        healthBar.setHealth(health, baseHealth);
         StartCoroutine(BlinkRed());
         if(health <= 0)
         {
