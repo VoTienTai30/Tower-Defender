@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+//public class GameManager : MonoBehaviour
+//{
     
 
-    private void Start()
-    {
-        StartCoroutine(WaveStartDelay());    
-    }
+//    private void Start()
+//    {
+//        StartCoroutine(WaveStartDelay());    
+//    }
 
-    IEnumerator WaveStartDelay() { 
-        yield return new WaitForSeconds(2);
+//    IEnumerator WaveStartDelay() { 
+//        yield return new WaitForSeconds(2);
 
-        GetComponent<EnemySpawner>().Spawning();
-    }
-}
+//        GetComponent<EnemySpawner>().Spawning();
+//    }
+//}
