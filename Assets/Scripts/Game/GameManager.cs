@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    public static GameManager Instance;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+//public class GameManager : MonoBehaviour
+//{
+    
 
-    private void Start()
-    {
-        GetComponent<HealthSystem>().Init();
-    }
-}
+//    private void Start()
+//    {
+//        StartCoroutine(WaveStartDelay());    
+//    }
+
+//    IEnumerator WaveStartDelay() { 
+//        yield return new WaitForSeconds(2);
+
+//        GetComponent<EnemySpawner>().Spawning();
+//    }
+//}
+

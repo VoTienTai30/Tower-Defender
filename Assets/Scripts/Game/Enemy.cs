@@ -46,4 +46,5 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
+
 }
