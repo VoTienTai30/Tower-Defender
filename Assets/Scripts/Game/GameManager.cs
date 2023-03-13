@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public static GameManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        StartCoroutine(WaveStartDelay());    
-    }
-
-    IEnumerator WaveStartDelay() { 
-        yield return new WaitForSeconds(2);
-
-        GetComponent<EnemySpawner>().Spawning();
+        GetComponent<HealthSystem>().Init();
     }
 }
