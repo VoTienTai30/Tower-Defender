@@ -1,15 +1,32 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //Health,AttackPower,MoveSpeed
-    public int health, attackPower;
+    [SerializeField]
+    public int health;
+
+    [SerializeField]
+    public int baseHealth;
+
+    [SerializeField]
+    public int attackPower;
+
+    [SerializeField]
     public float moveSpeed;
 
+    [SerializeField]
+    public HealthBar healthBar;
+
+    [SerializeField]
     public Animator animator;
+
+    [SerializeField]
     public float attackInterval;
+
     Coroutine attackOrder;
+
     Tower detectedTower;
 
     void Update()
@@ -22,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
-        animator.Play("Attack", 0, 0);
+        //animator.Play("Attack", 0, 0);
         //Wait attackInterval 
         yield return new WaitForSeconds(attackInterval);
         //Attack Again
@@ -32,7 +49,7 @@ public class Enemy : MonoBehaviour
     //Moving forward
     void Move()
     {
-        animator.Play("Move");
+        //animator.Play("Move");
         transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
     }
 
@@ -52,6 +69,7 @@ public class Enemy : MonoBehaviour
     {
         //Decrease health value
         health--;
+        healthBar.setHealth(health, baseHealth);
         //Blink Red animation
         StartCoroutine(BlinkRed());
         //Check if health is zero => destroy enemy
