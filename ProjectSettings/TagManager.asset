@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Tower
   layers:
   - Default
   - TransparentFX
@@ -45,13 +44,4 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 558909087
-    locked: 0
-  - name: Ground
-    uniqueID: 1034683321
-    locked: 0
-  - name: Tower
-    uniqueID: 3694714651
-    locked: 0
-  - name: UI
-    uniqueID: 2260309723
     locked: 0
