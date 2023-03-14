@@ -1,44 +1,61 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using Assets.Scripts;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class EnemySpawner : MonoBehaviour
-//{
-//    public static EnemySpawner instance;
-//    void Awake() { instance = this; }
+public class EnemySpawner : MonoBehaviour
+{
+    [SerializeField]
+    public List<GameObject> enemyPrefabs;
 
-//    Enemy prefabs
-//    public List<GameObject> prefabs;
-//    Enemy spawn root points
-//    public List<Transform> spawnPoints;
-//    Enemy spawn interval
-//    public float spawnInterval = 2f;
+    [SerializeField]
+    public List<Transform> pointSpawn;
 
+    [SerializeField]
+    public float spawnInterval = 2f;
 
-//    public void StartSpawning()
-//    {
-//        Call the spawn coroutine
-//        StartCoroutine(SpawnDelay());
-//    }
+    public static EnemySpawner instance;
 
-//    IEnumerator SpawnDelay()
-//    {
-//        Call the spawn method
-//        SpawnEnemy();
-//        Wait spawn interval
-//        yield return new WaitForSeconds(spawnInterval);
-//        Recall the same coroutine
-//        StartCoroutine(SpawnDelay());
-//    }
+    private Timer timer;
+    private int numberEnemySpawn = 1;
+    private float enemySpawnRateIncrease = 1.005f;
+    private int countTimeSpawn = 1;
+    private float distanceBetweenObjects = 3;
+    private void Awake()
+    {
+        instance = this;
+    }
 
-//    void SpawnEnemy()
-//    {
-//        Randomize the enemy spawned
-//        int randomPrefabID = Random.Range(0, prefabs.Count);
-//        Randomize the spawn point
-//        int randomSpawnPointID = Random.Range(0, spawnPoints.Count);
-//        Instantiate the enemy prefab
-//        GameObject spawnedEnemy = Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
-//    }
+    private void Start()
+    {
+        numberEnemySpawn = (int)Math.Ceiling(numberEnemySpawn * Mathf.Pow(enemySpawnRateIncrease, countTimeSpawn));
+        timer = gameObject.AddComponent<Timer>();
+        timer.Duration = spawnInterval;
+        timer.run();
+        int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+        int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+        Instantiate(enemyPrefabs[randomPrefabID], pointSpawn[randomSpawnPoint]);
+        Debug.Log(numberEnemySpawn);
+    }
 
-//}
+    private void Update()
+    {
+        if (timer.Finished)
+        {
+            for (int i = 0; i < numberEnemySpawn; i++)
+            {
+                int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+                int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+                Vector3 posSpawn = pointSpawn[randomSpawnPoint].position + i * distanceBetweenObjects * transform.right;
+                Instantiate(enemyPrefabs[randomPrefabID], posSpawn, Quaternion.identity);
+            }
+            countTimeSpawn++;
+            numberEnemySpawn = (int)Math.Ceiling(numberEnemySpawn * Mathf.Pow(enemySpawnRateIncrease, countTimeSpawn / 5));
+            timer.Duration = spawnInterval;
+            timer.run();
+            Debug.Log(numberEnemySpawn);
+        }
+    }
+
+}
