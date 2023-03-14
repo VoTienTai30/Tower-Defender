@@ -157,10 +157,10 @@ RectTransform:
   m_Father: {fileID: 1364325907}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -170}
-  m_SizeDelta: {x: 80, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233377349
 MonoBehaviour:
@@ -288,16 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99768eedff841074a8d7f4a2f6f9ea12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  towersPrefabs:
-  - {fileID: 4264958866763677808, guid: 3e8bb88b3c4b78c44bceb51f5997465a, type: 3}
-  - {fileID: 1411804659960363519, guid: 8fb5f8ef677aafe41b35f0b15ea1f5e8, type: 3}
-  spawnTowerRoot: {fileID: 848892649}
-  towersUI:
-  - {fileID: 1966520222}
-  - {fileID: 233377350}
-  spawnTilemap: {fileID: 1487639607}
-
+  enemyPrefabs: []
+  pointSpawn: []
+  spawnInterval: 2
 --- !u!1 &383381985
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &510084209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6156,10 +6149,10 @@ RectTransform:
   m_Father: {fileID: 1364325907}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -50}
-  m_SizeDelta: {x: 80, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966520221
 MonoBehaviour:
@@ -6259,7 +6252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &2039225054
 Grid:
   m_ObjectHideFlags: 0
