@@ -288,17 +288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99768eedff841074a8d7f4a2f6f9ea12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 6825723249471047517, guid: 7d650b1182968ce4eab744c29dbbb4ee, type: 3}
-  - {fileID: 1511269754767467771, guid: 8d3026cb3ade33945a266f4e86beeaf2, type: 3}
-  - {fileID: 8952300490108436456, guid: 7f8aa5e982789c84a90a49f4d00a3baa, type: 3}
-  - {fileID: 7025302292738777068, guid: 35a9d1100b92d3f4998a09efc36554ff, type: 3}
-  pointSpawn:
-  - {fileID: 608607948}
-  - {fileID: 1344044186}
-  - {fileID: 642126315}
-  - {fileID: 1692715888}
-  spawnInterval: 7
+
+  towersPrefabs:
+  - {fileID: 4264958866763677808, guid: 3e8bb88b3c4b78c44bceb51f5997465a, type: 3}
+  - {fileID: 1411804659960363519, guid: 8fb5f8ef677aafe41b35f0b15ea1f5e8, type: 3}
+  spawnTowerRoot: {fileID: 848892649}
+  towersUI:
+  - {fileID: 1966520222}
+  - {fileID: 233377350}
+  spawnTilemap: {fileID: 1487639607}
+
 --- !u!1 &383381985
 GameObject:
   m_ObjectHideFlags: 0
