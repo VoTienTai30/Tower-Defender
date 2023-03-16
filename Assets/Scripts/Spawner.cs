@@ -47,35 +47,35 @@ public class Spawner : MonoBehaviour
             //check if we can spawn in that cell (collider)
             if(spawnTilemap.GetColliderType(cellPosDefault)== Tile.ColliderType.Sprite)
             {
-                int towerCost = TowerCost(spawnID);
+               // int towerCost = TowerCost(spawnID);
                 //Check if currency is enough to spawn
-                if(GameManager.instance.currency.EnoughCurrency(towerCost))
-                {
+                //if(GameManager.instance.currency.EnoughCurrency(towerCost))
+                //{
                     //Use the amount of cost from the currency available
-                    GameManager.instance.currency.Use(towerCost);
+                    //GameManager.instance.currency.Use(towerCost);
                     //Spawn the tower
                     SpawnTower(cellPosCentered, cellPosDefault);
                     //Disable the collider
                     spawnTilemap.SetColliderType(cellPosDefault, Tile.ColliderType.None);
-                }
-                else
-                {
-                    Debug.Log("Not Enough Currency");
-                }                               
+                //}
+                //else
+                //{
+                //    Debug.Log("Not Enough Currency");
+                //}                               
             }                                  
         }
     }
 
-    public int TowerCost(int id)
-    {
-        switch(id)
-        {
-            case 0: return towersPrefabs[id].GetComponent<Tower_Pink>().cost;
-            case 1: return towersPrefabs[id].GetComponent<Tower_Mask>().cost;
-            case 2: return towersPrefabs[id].GetComponent<Tower_Ninja>().cost;  
-            default:return -1;
-        }
-    }
+    //public int TowerCost(int id)
+    //{
+    //    switch(id)
+    //    {
+    //        case 0: return towersPrefabs[id].GetComponent<Tower_Pink>().cost;
+    //        case 1: return towersPrefabs[id].GetComponent<Tower_Mask>().cost;
+    //        case 2: return towersPrefabs[id].GetComponent<Tower_Ninja>().cost;  
+    //        default:return -1;
+    //    }
+    //}
 
     void SpawnTower(Vector3 position, Vector3Int cellPosition)
     {
