@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1502,71 +1514,71 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       kindpng_1950544_0: -768007089
-      kindpng_1950544_1: 2035246924
       kindpng_1950544_10: 1675111125
-      kindpng_1950544_11: -1687440654
-      kindpng_1950544_12: -277229883
-      kindpng_1950544_13: 1017646897
-      kindpng_1950544_14: -390306438
-      kindpng_1950544_15: 571863366
-      kindpng_1950544_16: -1644244380
-      kindpng_1950544_17: -1831400007
-      kindpng_1950544_18: 1377157326
-      kindpng_1950544_19: 364894069
-      kindpng_1950544_2: 1102194274
-      kindpng_1950544_20: -367530922
-      kindpng_1950544_21: -1664924721
-      kindpng_1950544_22: 707593022
-      kindpng_1950544_23: 892862214
-      kindpng_1950544_24: -270347022
-      kindpng_1950544_25: -1346459509
-      kindpng_1950544_26: 1231382556
-      kindpng_1950544_27: 1468737952
-      kindpng_1950544_28: -300360733
-      kindpng_1950544_29: -2095911428
-      kindpng_1950544_3: -1920642587
-      kindpng_1950544_30: 1723438473
-      kindpng_1950544_31: -1978332788
-      kindpng_1950544_32: -1811821479
-      kindpng_1950544_33: -1971296998
-      kindpng_1950544_34: -786588493
-      kindpng_1950544_35: 1789057887
-      kindpng_1950544_36: -965137521
-      kindpng_1950544_37: -840353088
-      kindpng_1950544_38: 737493800
-      kindpng_1950544_39: 1712687533
-      kindpng_1950544_4: 42990317
-      kindpng_1950544_40: -1568006905
-      kindpng_1950544_41: -1698201629
       kindpng_1950544_42: -975982843
-      kindpng_1950544_43: -180009602
-      kindpng_1950544_44: 874865588
-      kindpng_1950544_45: -2141066901
-      kindpng_1950544_46: -472731510
-      kindpng_1950544_47: -822130834
-      kindpng_1950544_48: 611005934
-      kindpng_1950544_49: -2129135728
-      kindpng_1950544_5: -494772925
-      kindpng_1950544_50: -1067911979
-      kindpng_1950544_51: 332231999
-      kindpng_1950544_52: 925285140
-      kindpng_1950544_53: -596072913
-      kindpng_1950544_54: -1277344582
-      kindpng_1950544_55: 1000767398
-      kindpng_1950544_56: -1056482008
-      kindpng_1950544_57: 358179414
-      kindpng_1950544_58: 1099088276
-      kindpng_1950544_59: 1088699107
-      kindpng_1950544_6: -747530309
-      kindpng_1950544_60: -363017844
+      kindpng_1950544_30: 1723438473
       kindpng_1950544_61: 552963943
-      kindpng_1950544_62: 1072772946
-      kindpng_1950544_63: 1017678055
-      kindpng_1950544_64: 222498434
-      kindpng_1950544_65: 652058680
-      kindpng_1950544_7: -1085629592
+      kindpng_1950544_56: -1056482008
       kindpng_1950544_8: 1460273235
+      kindpng_1950544_5: -494772925
+      kindpng_1950544_38: 737493800
+      kindpng_1950544_40: -1568006905
+      kindpng_1950544_13: 1017646897
+      kindpng_1950544_54: -1277344582
+      kindpng_1950544_35: 1789057887
+      kindpng_1950544_64: 222498434
+      kindpng_1950544_34: -786588493
+      kindpng_1950544_41: -1698201629
+      kindpng_1950544_37: -840353088
+      kindpng_1950544_47: -822130834
+      kindpng_1950544_39: 1712687533
+      kindpng_1950544_12: -277229883
+      kindpng_1950544_20: -367530922
+      kindpng_1950544_28: -300360733
+      kindpng_1950544_52: 925285140
+      kindpng_1950544_26: 1231382556
+      kindpng_1950544_65: 652058680
+      kindpng_1950544_15: 571863366
+      kindpng_1950544_21: -1664924721
+      kindpng_1950544_3: -1920642587
+      kindpng_1950544_32: -1811821479
+      kindpng_1950544_57: 358179414
+      kindpng_1950544_6: -747530309
+      kindpng_1950544_55: 1000767398
+      kindpng_1950544_14: -390306438
+      kindpng_1950544_45: -2141066901
+      kindpng_1950544_7: -1085629592
+      kindpng_1950544_25: -1346459509
+      kindpng_1950544_49: -2129135728
+      kindpng_1950544_62: 1072772946
+      kindpng_1950544_43: -180009602
+      kindpng_1950544_4: 42990317
+      kindpng_1950544_51: 332231999
+      kindpng_1950544_1: 2035246924
+      kindpng_1950544_44: 874865588
+      kindpng_1950544_60: -363017844
+      kindpng_1950544_22: 707593022
+      kindpng_1950544_27: 1468737952
+      kindpng_1950544_18: 1377157326
+      kindpng_1950544_31: -1978332788
+      kindpng_1950544_46: -472731510
+      kindpng_1950544_63: 1017678055
+      kindpng_1950544_53: -596072913
+      kindpng_1950544_33: -1971296998
+      kindpng_1950544_29: -2095911428
+      kindpng_1950544_59: 1088699107
+      kindpng_1950544_16: -1644244380
+      kindpng_1950544_36: -965137521
+      kindpng_1950544_23: 892862214
+      kindpng_1950544_17: -1831400007
+      kindpng_1950544_48: 611005934
+      kindpng_1950544_11: -1687440654
+      kindpng_1950544_24: -270347022
+      kindpng_1950544_19: 364894069
+      kindpng_1950544_50: -1067911979
+      kindpng_1950544_58: 1099088276
       kindpng_1950544_9: -746464641
+      kindpng_1950544_2: 1102194274
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

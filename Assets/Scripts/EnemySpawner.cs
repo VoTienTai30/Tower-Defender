@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private float enemySpawnRateIncrease = 1.005f;
     private int countTimeSpawn = 1;
     private float distanceBetweenObjects = 3;
+    private int percentRandomBoss = 19;
     private void Awake()
     {
         instance = this;
@@ -36,26 +37,47 @@ public class EnemySpawner : MonoBehaviour
         int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
         int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
         Instantiate(enemyPrefabs[randomPrefabID], pointSpawn[randomSpawnPoint]);
-        Debug.Log(numberEnemySpawn);
     }
 
     private void Update()
     {
         if (timer.Finished)
         {
+            int percentRandomEnemy = (100 - percentRandomBoss) / 3;
             for (int i = 0; i < numberEnemySpawn; i++)
             {
-                int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+                int[] probabilities = new int[] { percentRandomEnemy, percentRandomEnemy, percentRandomEnemy, percentRandomBoss };
+                GameObject randomPrefab = RandomWithProbability(enemyPrefabs, probabilities);
+                //int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
                 int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
                 Vector3 posSpawn = pointSpawn[randomSpawnPoint].position + i * distanceBetweenObjects * transform.right;
-                Instantiate(enemyPrefabs[randomPrefabID], posSpawn, Quaternion.identity);
+                Instantiate(randomPrefab, posSpawn, Quaternion.identity);
             }
             countTimeSpawn++;
             numberEnemySpawn = (int)Math.Ceiling(numberEnemySpawn * Mathf.Pow(enemySpawnRateIncrease, countTimeSpawn / 5));
             timer.Duration = spawnInterval;
             timer.run();
-            Debug.Log(numberEnemySpawn);
         }
     }
+    GameObject RandomWithProbability(List<GameObject> values, int[] probabilities)
+    {
+        int sumOfProbabilities = 0;
+        for (int i = 0; i < probabilities.Length; i++)
+        {
+            sumOfProbabilities += probabilities[i];
+        }
+        int randomValue = UnityEngine.Random.Range(1, sumOfProbabilities + 1);
 
+        int currentProbability = 0;
+        for (int i = 0; i < values.Count; i++)
+        {
+            currentProbability += probabilities[i];
+            if (randomValue <= currentProbability)
+            {
+                return values[i];
+            }
+        }
+
+        return values[values.Count - 1];
+    }
 }

@@ -1,31 +1,42 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CurrencySystem : MonoBehaviour
 {
-    //FIELDS
-    //currency txt UI
-    public Text txt_Currency;
-    //default currency value
+    public TextMeshProUGUI txt_Currency;
     public int defaultCurrency;
-    //current currency value
     public int currency;
 
+    private Timer timer;
+    private void Start()
+    {
+        timer = gameObject.AddComponent<Timer>();
+        timer.Duration = 5;
+        timer.run();
+    }
 
-    //METHODS
-    //Init (set the default values)
+    private void Update()
+    {
+        if(timer.Finished)
+        {
+            Gain(1);
+            timer.Duration = 5;
+            timer.run();
+        }
+    }
+
     public void Init()
     {
         currency = defaultCurrency;
         UpdateUI();
     }
-    //Gain currency (input of value)
     public void Gain(int val)
     {
         currency += val;
         UpdateUI();
     }
-    //Use currency (input of value)
     public bool Use(int val)
     {
         if (EnoughCurrency(val))
@@ -39,16 +50,13 @@ public class CurrencySystem : MonoBehaviour
             return false;
         }
     }
-    //Check availability of currency
     public bool EnoughCurrency(int val)
     {
-        //Check if the val is equal or more than currency
         if (val <= currency)
             return true;
         else
             return false;
     }
-    //Update txt ui
     void UpdateUI()
     {
         txt_Currency.text = currency.ToString();

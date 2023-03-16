@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaveStartDelay()
     {
-        //Wait for X seconds
         yield return new WaitForSeconds(2f);
     }  
 
