@@ -36,16 +36,19 @@ public class Spawner : MonoBehaviour
             var cellPosCentered = spawnTilemap.GetCellCenterWorld(cellPosDefault);
             if (spawnTilemap.GetColliderType(cellPosDefault) == Tile.ColliderType.Sprite)
             {
-                int towerCost = TowerCost(spawnID);
+               // int towerCost = TowerCost(spawnID);
                 //Check if currency is enough to spawn
+
                 if (GameManager.instance.currency.EnoughCurrency(towerCost))
                 {
+
                     //Use the amount of cost from the currency available
-                    GameManager.instance.currency.Use(towerCost);
+                    //GameManager.instance.currency.Use(towerCost);
                     //Spawn the tower
                     SpawnTower(cellPosCentered ,cellPosDefault);
                     //Disable the collider
                     spawnTilemap.SetColliderType(cellPosDefault, Tile.ColliderType.None);
+
                 }
                 else
                     {
@@ -66,6 +69,7 @@ public class Spawner : MonoBehaviour
             default: return -1;
         }
     }
+
 
     void SpawnTower(Vector3 position, Vector3Int cellPosition)
     {
