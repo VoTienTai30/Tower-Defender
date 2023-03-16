@@ -16,7 +16,6 @@ public class Tower_Pink : Tower
     //Init
     protected override void Start()
     {
-        Debug.Log("PINK");
         StartCoroutine(Interval());
     }
     //Interval IEnumerator
@@ -31,7 +30,7 @@ public class Tower_Pink : Tower
     //Trigger Income Increase
     public void IncreaseIncome()
     {
-        //GameManager.instance.currency.Gain(incomeValue);
+        GameManager.instance.currency.Gain(incomeValue);
         StartCoroutine(CoinIndication());
     }  
     //Show coin indication over the tower for short time (0.5 second)

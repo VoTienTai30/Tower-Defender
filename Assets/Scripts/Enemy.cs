@@ -8,19 +8,10 @@ public class Enemy : MonoBehaviour
     public int health;
 
     [SerializeField]
-    public int baseHealth;
-
-    [SerializeField]
     public int attackPower;
 
     [SerializeField]
     public float moveSpeed;
-
-    [SerializeField]
-    public HealthBar healthBar;
-
-    [SerializeField]
-    public Animator animator;
 
     [SerializeField]
     public float attackInterval;
@@ -28,6 +19,18 @@ public class Enemy : MonoBehaviour
     Coroutine attackOrder;
 
     Tower detectedTower;
+    private Animator animator;
+    float screenLeft;
+    float screenRight;
+    float screenTop;
+    float screenBottom;
+    float posY;
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+        saveScreenSize();
+        posY = transform.position.y;
+    }
 
     void Update()
     {
@@ -36,54 +39,66 @@ public class Enemy : MonoBehaviour
             Move();
         }
     }
+    private void saveScreenSize()
+    {
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        // save screen edges in world coordinates
+        float screenZ = -Camera.main.transform.position.z;
+        Vector3 lowerLeftCornerScreen = new Vector3(0, 0, screenZ);
+        Vector3 upperRightCornerScreen = new Vector3(screenWidth, screenHeight, screenZ);
+        Vector3 lowerLeftCornerWorld = Camera.main.ScreenToWorldPoint(lowerLeftCornerScreen);
+        Vector3 upperRightCornerWorld = Camera.main.ScreenToWorldPoint(upperRightCornerScreen);
+        screenLeft = lowerLeftCornerWorld.x;
+        screenRight = upperRightCornerWorld.x;
+        screenTop = upperRightCornerWorld.y;
+        screenBottom = lowerLeftCornerWorld.y;
+    }
+    void Move()
+    {
+        animator.SetBool("isAttack", false);
+        float posX = transform.position.x - moveSpeed * Time.deltaTime;
+        transform.position = new Vector3(posX, posY, -Camera.main.transform.position.z);
+        if(gameObject.transform.position.x <= screenLeft)
+        {
+            GameManager.instance.health.LoseHealth();
+            Destroy(gameObject);
+        }
+    }
 
     IEnumerator Attack()
     {
-        //animator.Play("Attack", 0, 0);
-        //Wait attackInterval 
+        animator.SetBool("isAttack", true);
         yield return new WaitForSeconds(attackInterval);
-        //Attack Again
         attackOrder = StartCoroutine(Attack());
-    }
-
-    //Moving forward
-    void Move()
-    {
-        //animator.Play("Move");
-        transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
+        InflictDamage();
     }
 
     public void InflictDamage()
     {
-        bool towerDied = detectedTower.LoseHealth(attackPower);
-
-        if (towerDied)
+        if(detectedTower != null)
         {
-            detectedTower = null;
-            StopCoroutine(attackOrder);
-        }
+            bool towerDied = detectedTower.LoseHealth(attackPower);
+            if (towerDied)
+            {
+                detectedTower = null;
+                StopCoroutine(attackOrder);
+            }
+        }    
     }
 
-    //Lose health
     public void LoseHealth()
     {
-        //Decrease health value
         health--;
-        healthBar.setHealth(health, baseHealth);
-        //Blink Red animation
         StartCoroutine(BlinkRed());
-        //Check if health is zero => destroy enemy
         if (health <= 0)
             Destroy(gameObject);
     }
 
     IEnumerator BlinkRed()
     {
-        //Change the spriterendere color to red
         GetComponent<SpriteRenderer>().color = Color.red;
-        //Wait for really small amount of time 
         yield return new WaitForSeconds(0.2f);
-        //Revert to default color
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 

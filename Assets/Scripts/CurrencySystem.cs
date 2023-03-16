@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Assets.Scripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,23 @@ public class CurrencySystem : MonoBehaviour
     public int defaultCurrency;
     public int currency;
 
+    private Timer timer;
+    private void Start()
+    {
+        timer = gameObject.AddComponent<Timer>();
+        timer.Duration = 5;
+        timer.run();
+    }
+
+    private void Update()
+    {
+        if(timer.Finished)
+        {
+            Gain(1);
+            timer.Duration = 5;
+            timer.run();
+        }
+    }
 
     public void Init()
     {
