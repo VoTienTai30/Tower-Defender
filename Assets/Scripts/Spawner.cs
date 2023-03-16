@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             var cellPosCentered = spawnTilemap.GetCellCenterWorld(cellPosDefault);
             if (spawnTilemap.GetColliderType(cellPosDefault) == Tile.ColliderType.Sprite)
             {
-               // int towerCost = TowerCost(spawnID);
+                int towerCost = TowerCost(spawnID);
                 //Check if currency is enough to spawn
 
                 if (GameManager.instance.currency.EnoughCurrency(towerCost))
