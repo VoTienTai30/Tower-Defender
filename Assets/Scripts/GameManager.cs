@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     void Awake() { instance = this; }
-
+    public GameObject loseGame;
     public Spawner spawner;
     public HealthSystem health;
     public CurrencySystem currency;
@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     {
         GetComponent<HealthSystem>().Init();
         GetComponent<CurrencySystem>().Init();
-
+        health = new HealthSystem();
+        if(health.healthCount == 0)
+        {
+           loseGame.SetActive(true);
+           
+        }
         StartCoroutine(WaveStartDelay());
     }
 
