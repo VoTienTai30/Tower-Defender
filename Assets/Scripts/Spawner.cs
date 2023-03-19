@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
                 {
 
                     //Use the amount of cost from the currency available
-                    //GameManager.instance.currency.Use(towerCost);
+                    GameManager.instance.currency.Use(towerCost);
                     //Spawn the tower
                     SpawnTower(cellPosCentered ,cellPosDefault);
                     //Disable the collider
