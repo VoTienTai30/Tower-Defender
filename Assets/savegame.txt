@@ -1,10 +1,10 @@
-health: 4
-money: 8
-heroes: ((Tower3(Clone) -14,80023 -3,77405 1)(Tower3(Clone) -14,80023 -2,75575 1)(Tower3(Clone) -14,80023 -1,73745 1)(Tower3(Clone) -14,80023 -0,71915 1)(Tower3(Clone) -14,80023 0,29915 1)(Tower3(Clone) -14,80023 1,31745 1))
-enemy: ((Enemy3(Clone) -10,12245 0,45435 -2)(Enemy1(Clone) -6,622961 0,45435 -2)(Enemy2(Clone) -0,6229823 0,45435 -2)(Enemy4(Clone) -3,121515 0,45435 -2)(Enemy3(Clone) -0,1215127 -0,56395 -2)(Enemy2(Clone) 2,871486 -3,61885 -2)(Enemy2(Clone) 5,871494 -1,58225 -2)(Enemy1(Clone) 0,3997638 -2,60055 -2)(Enemy3(Clone) 3,379375 -2,60055 -2)(Enemy4(Clone) 6,379387 2,49095 -2)(Enemy4(Clone) 9,379375 0,45435 -2)(Enemy2(Clone) 12,37935 -2,60055 -2)(Enemy1(Clone) 3,886494 -3,61885 -2)(Enemy2(Clone) 6,886492 -1,58225 -2)(Enemy4(Clone) 9,879489 -1,58225 -2)(Enemy2(Clone) 12,87949 1,47265 -2)(Enemy1(Clone) 15,87948 2,49095 -2)(Enemy3(Clone) 18,87948 -0,56395 -2))
+health: 5
+money: 20
+heroes: ()
+enemy: ((Enemy3(Clone) 5.056225 -1.58225 -2))
 enemy spawner time: 5
-percent random boss: 35
-count time spawn: 9
-enemy spawn rate increase: 1,005
-number enemy spawn: 7
+percent random boss: 19
+count time spawn: 1
+enemy spawn rate increase: 1.005
+number enemy spawn: 2
 distance between objects: 3
