@@ -19,14 +19,12 @@ public class HealthSystem : MonoBehaviour
     {
         if (healthCount < 1)
         {
-            
+            LoseScreen.SetActive(true);
             return;
         }
       
-
         healthCount--;
         txt_healthCount.text = healthCount.ToString();
-
         CheckHealthCount();
     }
 
@@ -37,4 +35,5 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("You lost");
         }
     }
+   
 }

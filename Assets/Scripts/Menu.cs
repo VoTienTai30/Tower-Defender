@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -50,14 +51,15 @@ public class Menu : MonoBehaviour
                 {
                     string[] parts = line.Split(':');
                      health = int.Parse(parts[1]);
-                   var healthsys = new HealthSystem();
+                    var healthsys = new HealthSystem();
                     healthsys.defaultHealthCount = health;
+
                 }
                 if (i == 1)
                 {
                     string[] parts = line.Split(':');
                     money = int.Parse(parts[1]);
-                    var currency =new CurrencySystem();
+                    var currency = new CurrencySystem();
                     currency.currency = money;
                 }
                 if (i == 2)
@@ -110,9 +112,12 @@ public class Menu : MonoBehaviour
                     }
 
                     // Output the tower positions
+                    var spawn = new EnemySpawner();
                     foreach (string position in towerPositions)
                     {
-                        Debug.Log(position);
+                        string[] parts = line.Split(' ');
+                        var numbers = Regex.Matches(parts[0], @"\d+").OfType<Match>().Select(m => int.Parse(m.Value)).ToArray();
+                        spawn.loadGame(numbers[0], float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
                     }
                 }
                 if (i == 4)
@@ -161,10 +166,13 @@ public class Menu : MonoBehaviour
                 i++;
               
             }
+           
         }
         else
         {
             Debug.Log("File not found");
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
     }
 }
