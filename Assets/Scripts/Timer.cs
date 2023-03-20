@@ -28,6 +28,10 @@ namespace Assets.Scripts
                     totalSeconds = value;
                 }
             }
+            get
+            {
+                return totalSeconds;
+            }
         }
 
         public bool Finished
