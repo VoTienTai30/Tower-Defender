@@ -117,7 +117,7 @@ public class Menu : MonoBehaviour
                     {
                         string[] parts = line.Split(' ');
                         var numbers = Regex.Matches(parts[0], @"\d+").OfType<Match>().Select(m => int.Parse(m.Value)).ToArray();
-                        spawn.loadGame(numbers[0], float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                        //spawn.loadGame(numbers[0], float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
                     }
                 }
                 if (i == 4)
