@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
     public TextMeshProUGUI txt_healthCount;
     public int defaultHealthCount;
     public int healthCount;
-    public GameObject loseScreen;
+    public GameObject LoseScreen;
 
     public void Init()
     {
@@ -19,15 +19,12 @@ public class HealthSystem : MonoBehaviour
     {
         if (healthCount < 1)
         {
-           
-            loseScreen.SetActive(true);
+            LoseScreen.SetActive(true);
             return;
         }
-           
-
+      
         healthCount--;
         txt_healthCount.text = healthCount.ToString();
-
         CheckHealthCount();
     }
 
@@ -38,4 +35,5 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("You lost");
         }
     }
+   
 }

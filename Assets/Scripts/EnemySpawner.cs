@@ -63,6 +63,13 @@ public class EnemySpawner : MonoBehaviour
             timer.run();
         }
     }
+    public void loadGame(int tower, float x, float y, float z)
+    {
+        int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+        int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+        Vector3 posSpawn = new Vector3(x, y, z);
+        Instantiate(enemyPrefabs[tower], posSpawn, Quaternion.identity);
+    }
     GameObject RandomWithProbability(List<GameObject> values, int[] probabilities)
     {
         int sumOfProbabilities = 0;
