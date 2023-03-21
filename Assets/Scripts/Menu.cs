@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEngine.Windows;
 using static UnityEditor.Progress;
@@ -22,7 +23,10 @@ public class Menu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
+    public void DisableButton()
+    {
+      
+    }
     public void QuitToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
