@@ -16,7 +16,6 @@ public class ScreenMenu : MonoBehaviour
         }
         StreamReader reader = new StreamReader(filePath);
         string line = reader.ReadToEnd();
-        Debug.Log(line);
         if (line == "" || line == null)
         {
             btnContinue.gameObject.SetActive(false);

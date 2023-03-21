@@ -1,0 +1,10 @@
+health: 2
+money: 110
+heroes: ((Tower3(Clone) -12.94089 -1.73745 1)(Tower2(Clone) -13.87056 0.29915 1)(Tower1(Clone) -11.08155 1.31745 1)(Tower2(Clone) -8.292534 -0.71915 1)(Tower2(Clone) -9.222205 0.29915 1)(Tower2(Clone) -9.222205 -1.73745 1))
+enemy: ((Enemy2(Clone) 0.2263465 0.45435 -2)(Enemy1(Clone) -7.881023 1.47265 -2)(Enemy1(Clone) -4.378009 0.45435 -2)(Enemy3(Clone) -1.348607 -1.58225 -2)(Enemy2(Clone) -0.8777236 -0.56395 -2)(Enemy3(Clone) 2.122278 1.47265 -2)(Enemy2(Clone) 3.728887 -3.61885 -2)(Enemy1(Clone) 6.728882 1.47265 -2))
+enemy spawner time: 5
+percent random boss: 25
+count time spawn: 4
+enemy spawn rate increase: 1.005
+number enemy spawn: 2
+distance between objects: 3

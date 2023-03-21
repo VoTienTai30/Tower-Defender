@@ -17,14 +17,13 @@ public class HealthSystem : MonoBehaviour
 
     public void LoseHealth()
     {
+        healthCount--;
+        txt_healthCount.text = healthCount.ToString();
         if (healthCount < 1)
         {
             LoseScreen.SetActive(true);
             return;
         }
-      
-        healthCount--;
-        txt_healthCount.text = healthCount.ToString();
         CheckHealthCount();
     }
 

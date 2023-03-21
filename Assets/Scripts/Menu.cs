@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ public class Menu : MonoBehaviour
     }
     public void loadFile()
     {
+        DataLoad.isContinue = true;
         int money = 0;
         int health = 0;
         int spawnerTime = 0;
@@ -55,16 +57,13 @@ public class Menu : MonoBehaviour
                 {
                     string[] parts = line.Split(':');
                      health = int.Parse(parts[1]);
-                    var healthsys = new HealthSystem();
-                    healthsys.defaultHealthCount = health;
-
+                    DataLoad.health = health;
                 }
                 if (i == 1)
                 {
                     string[] parts = line.Split(':');
                     money = int.Parse(parts[1]);
-                    var currency = new CurrencySystem();
-                    currency.currency = money;
+                    DataLoad.money = money;
                 }
                 if (i == 2)
                 {
@@ -90,7 +89,8 @@ public class Menu : MonoBehaviour
                     // Output the tower positions
                     foreach (string position in towerPositions)
                     {
-                        Debug.Log(position);
+                        // (Tower3(Clone) -12.94089 -1.73745 1)
+                        DataLoad.towers.Add(position);
                     }
                 }
                 if (i == 3)
@@ -106,8 +106,6 @@ public class Menu : MonoBehaviour
                     // Loop through each match and extract the tower position
                     foreach (Match match in matches)
                     {
-
-
                         // Extract the tower position from the match
                         string towerPosition = match.Groups[0].Value;
 
@@ -119,52 +117,47 @@ public class Menu : MonoBehaviour
                     var spawn = new EnemySpawner();
                     foreach (string position in towerPositions)
                     {
-                        string[] parts = line.Split(' ');
-                        var numbers = Regex.Matches(parts[0], @"\d+").OfType<Match>().Select(m => int.Parse(m.Value)).ToArray();
-                        //spawn.loadGame(numbers[0], float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                        //string[] parts = line.Split(' ');
+                        //var numbers = Regex.Matches(parts[0], @"\d+").OfType<Match>().Select(m => int.Parse(m.Value)).ToArray();
+                        DataLoad.enemies.Add(position);
                     }
                 }
                 if (i == 4)
                 {
                     string[] parts = line.Split(':');
                     spawnerTime = int.Parse(parts[1]);
-                    
+                    DataLoad.spawnerTime = spawnerTime;
                 }
                 if (i == 5)
                 {
                     string[] parts = line.Split(':');
                     percentRandomBoss = int.Parse(parts[1]);
-                    var spanwer = new EnemySpawner();
-                    spanwer.percentRandomBoss = percentRandomBoss;
+                    DataLoad.percentRandomBoss= percentRandomBoss;
                 }
                 if (i == 6)
                 {
                     string[] parts = line.Split(':');
                     countTimeSpawn = int.Parse(parts[1]);
-                    var spanwer = new EnemySpawner();
-                    spanwer.countTimeSpawn = countTimeSpawn;
+                    DataLoad.countTimeSpawn = countTimeSpawn;
                 }
                 if (i == 7)
                 {
                     string[] parts = line.Split(':');
                     enemySpawnRateIncrease = float.Parse(parts[1]);
-                    var spanwer = new EnemySpawner();
-                    spanwer.enemySpawnRateIncrease = enemySpawnRateIncrease;
+                    DataLoad.enemySpawnRateIncrease = enemySpawnRateIncrease;
 
                 }
                 if (i == 8)
                 {
                     string[] parts = line.Split(':');
                     numberEnemySpawn = int.Parse(parts[1]);
-                    var spanwer = new EnemySpawner();
-                    spanwer.numberEnemySpawn = numberEnemySpawn;
+                    DataLoad.numberEnemySpawn = numberEnemySpawn;
                 }
                 if (i == 9)
                 {
                     string[] parts = line.Split(':');
                     distanceBetweenObjects = float.Parse(parts[1]);
-                    var spanwer = new EnemySpawner();
-                    spanwer.distanceBetweenObjects = distanceBetweenObjects;
+                    DataLoad.distanceBetweenObjects = distanceBetweenObjects;
                 }
 
                 i++;
