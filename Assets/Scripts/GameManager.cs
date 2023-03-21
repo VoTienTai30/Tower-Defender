@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     public Spawner spawner;
     public HealthSystem health;
     public CurrencySystem currency;
+    public Menu menu;
 
     void Start()
     {
+        
         GetComponent<HealthSystem>().Init();
         GetComponent<CurrencySystem>().Init();
 

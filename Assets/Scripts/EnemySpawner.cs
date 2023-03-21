@@ -48,7 +48,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 int[] probabilities = new int[] { percentRandomEnemy, percentRandomEnemy, percentRandomEnemy, percentRandomBoss };
                 GameObject randomPrefab = RandomWithProbability(enemyPrefabs, probabilities);
-                //int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
                 int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
                 Vector3 posSpawn = pointSpawn[randomSpawnPoint].position + i * distanceBetweenObjects * transform.right;
                 Instantiate(randomPrefab, posSpawn, Quaternion.identity);
@@ -62,6 +61,13 @@ public class EnemySpawner : MonoBehaviour
             timer.Duration = spawnInterval;
             timer.run();
         }
+    }
+    public void loadGame(int tower, float x, float y, float z)
+    {
+        int randomPrefabID = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+        int randomSpawnPoint = UnityEngine.Random.Range(0, pointSpawn.Count);
+        Vector3 posSpawn = new Vector3(x, y, z);
+        Instantiate(enemyPrefabs[tower], posSpawn, Quaternion.identity);
     }
     GameObject RandomWithProbability(List<GameObject> values, int[] probabilities)
     {
